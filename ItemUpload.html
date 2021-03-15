@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<title>GSA Item Upload</title>
+<body>
+<h1>Grocery Shopping Assistant</h1>
+
+<form action="ItemUpload.php" method="post" enctype="multipart/form-data">
+  <p>Please Enter Item information: </p><br>
+  Item Name:       <input type="text" id='ItemName' name='ItemName'><br><br>
+  Aisle Number:    <input type="text" id='AisleNum' name='AisleNum'><br><br>
+                   <input type="hidden" name="MAX_FILE_SIZE" value="800000" />
+
+  Image of Item:  <input type="file" name="userfile"><br><br>
+
+  <input type="submit" value="Submit"><br>
+  </form>
+
+</body>
+</html>
