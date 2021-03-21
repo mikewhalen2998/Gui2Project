@@ -1,0 +1,31 @@
+.navbar-brand {
+margin:auto;
+
+}
+.Header{
+  text-align:center;
+  background-color:black;
+  color:white;
+}
+.UploadForm{
+  text-align:center;
+  background-color:DimGrey ;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+
+}
+
+
+h3, form{
+text-align:center;
+color:white;
+}
+
+
+
+body{
+background-color:#333333;
+text-align: center;
+}
