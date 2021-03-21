@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html>
-<title>GSA Selector</title>
-<body>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<h1>Grocery Shopping Assistant</h1>
-<h3>Pick if you wish to search for an item or upload new item info</h3>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="selectorStyle.css">
+    <title>GSA Selector</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="homepage.html">Grocery Shopping Assistant</a>
+  </nav>
+
+
+<h3>Please Choose an Option</h3>
 
 <form action="Selector.php" method="post">
-  <p>Pick which option you would like to do, Item Search or Upload Information</p>
   <input type="radio" id="ItemSearch" name="selection" value="ItemSearch">
   <label for="ItemSearch">Item Search</label><br>
   <input type="radio" id="UploadInfo" name="selection" value="UploadInfo">
   <label for="UploadInfo">UploadItem</label><br><br>
 
   <input type="submit" value="Submit"/>
-  <p>Note: Lowell is only valid option at this moment</p>
 
 </form>
 
-</body>
-</html>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </body>
 </html>
