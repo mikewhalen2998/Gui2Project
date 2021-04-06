@@ -8,7 +8,17 @@
 
 <form action="ItemSearch.php" method="post">
   <p>Please Enter Item Information: </p><br>
-  Item Name:       <input type="text" id='ItemName' name='ItemName'><br><br>
+  Item Name:       <input type="text" id='ItemName' name='ItemName' required><br><br>
+
+  <label for = "itemType">Item Type: </label>
+    <select id= "itemType" name="itemType" required>
+      <option disabled selected value> -- select an option -- </option>
+      <option value ="produce">Produce</option>
+      <option value ="dairy">Dairy</option>
+      <option value ="meat">Meat</option>
+      <option value ="frozen">Frozen</option>
+      <option value ="general">Other</option>
+    </select>
 
   <input type="submit" value="Submit"><br>
   </form>
