@@ -24,10 +24,20 @@
 <div class="UploadForm">
 <form action="ItemUpload.php" method="post" enctype="multipart/form-data">
   <p>Please Enter Item information: </p><br>
-  Item Name:       <input type="text" id='ItemName' name='ItemName'><br><br>
-  Aisle Number:    <input type="text" id='AisleNum' name='AisleNum'><br><br>
+  Item Name:       <input type="text" id='ItemName' name='ItemName' required><br><br>
+  Aisle Number:    <input type="text" id='AisleNum' name='AisleNum' required><br><br>
                    <input type="hidden" name="MAX_FILE_SIZE" value="800000" />
-  Item Image:  <input type="file" name="userfile">
+  Item Image:  <input type="file" name="userfile" required> <br><br>
+  <label for = "itemType">Item Type: </label>
+    <select id= "itemType" name="itemType" required>
+      <option disabled selected value> -- select an option -- </option>
+      <option value ="produce">Produce</option>
+      <option value ="dairy">Dairy</option>
+      <option value ="meat">Meat</option>
+      <option value ="frozen">Frozen</option>
+      <option value ="general">Other</option>
+    </select>
+
   <br><br>
   <input type="submit" value="Submit"><br>
   </form>
