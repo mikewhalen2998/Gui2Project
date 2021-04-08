@@ -1,0 +1,76 @@
+/* This styling is for the actual information printed out in the body of the page like Item name, aisle number ,etc. */
+.foodInformation{
+ text-align:center;
+ font-family: Verdana, sans-serif;
+ margin:auto;
+ color:white;
+}
+
+
+/* This styling is for the button at the top with the entered information also */
+.searchInformation{
+text-align:center;
+font-family: Verdana, sans-serif;
+margin:auto;
+color:white;
+}
+
+
+/* Background styling */
+body{
+  background-color:#333333
+}
+
+/* Line below each product information */
+hr{
+  border: 5px solid black;
+  border-radius: 2px;
+}
+
+/* Header styling */
+.navbar-brand {
+margin:auto;
+}
+
+
+.itemNameStyling{
+  display:inline-block;
+  margin:5px;
+  padding:5px;
+  color:#f59e42;
+}
+
+.aisleNumberStyling{
+  display:inline-block;
+  margin:5px;
+  padding:5px;
+  color:#f59e42;
+}
+
+.imageStyling{
+  display:inline-block;
+  margin:5px;
+  padding:5px;
+  color:#f59e42;
+}
+
+.itemTypeStyling{
+  display:inline-block;
+  margin:5px;
+  padding:5px;
+  color:#f59e42;
+}
+
+
+.pageInformation{
+  text-align:center;
+  font-family: Verdana, sans-serif;
+  margin:auto;
+  color:white;
+}
+
+img{
+max-width:200px;
+max-height:200px;
+
+}
