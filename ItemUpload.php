@@ -13,11 +13,11 @@
 
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="homepage.html">Grocery Shopping Assistant</a>
   </nav>
 
-<div class="iteminfoPrintout">
+<div class="itemInfoPrintout">
 <?php
 //Add styling to files for when users using return button
 // take location input and push user to Selector.HTML
@@ -28,15 +28,15 @@ $IType = $_POST["itemType"];
 $uploaddir= 'img/';
 $uploadfile = $uploaddir.basename($_FILES['userfile']['name']);
 
-echo"ItemName: ".$IName;
+echo"Item Name: ".$IName;
 ?> <br><?php
-echo"AisleNum: ".$ANum;
+echo"Aisle Number: ".$ANum;
 ?> <br><?php
 echo"Item Type: ".$IType;
 ?> <br><?php
 
 
-echo"Uploadfile: ".$uploadfile;
+echo"Upload file: ".$uploadfile;
 ?> <br><?php
 
 
@@ -54,10 +54,11 @@ print_r($_FILES);
 print "</pre>";
 */
 ?>
-</div><!-- itemInfoPrintout close -->
+
 <a href="ItemUpload.html">
       <input type="submit" value ="Return to Item Upload"/>
 </a>
+</div><!-- itemInfoPrintout close -->
 <br><br>
 <?php
 //After here upload to database

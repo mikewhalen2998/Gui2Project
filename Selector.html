@@ -12,23 +12,29 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="homepage.html">Grocery Shopping Assistant</a>
   </nav>
 
-
+<div class="innerContent">
 <h3>Please Choose an Option</h3>
 
 <form action="Selector.php" method="post">
   <input type="radio" id="ItemSearch" name="selection" value="ItemSearch">
   <label for="ItemSearch">Item Search</label><br>
   <input type="radio" id="UploadInfo" name="selection" value="UploadInfo">
-  <label for="UploadInfo">UploadItem</label><br><br>
+  <label for="UploadInfo">Upload Item</label><br><br>
 
   <input type="submit" value="Submit"/>
 
 </form>
 
+<br>
+<form action="Homepage.html" method="post">
+<input type="submit" value="Go back to Homepage">
+</form>
+
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </body>
 </html>
