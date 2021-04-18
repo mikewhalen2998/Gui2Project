@@ -6,18 +6,38 @@ margin:auto;
 
 .Greetings{
 text-align:center;
-background-color:black;
-color:white;
+background-color:#3e7823;
+color:black;
 
 }
 
+nav{
+background-color:#3C3C3C;
+}
 
 form {
 text-align:center;
-color:white;
+color:black;
 }
 
 
 body{
-background-color:#333333
+/*background-color:#E8EBF7;*/
+/*background-color:#D2D8EF;*/
+background-color:#white;
+
+}
+
+.innerContent{
+  max-width:80%;
+  background-color:#E1E5F4;
+  margin:auto;
+  height: 100vh;
+  border:black solid 2px;
+}
+
+
+#labelTewksbury {
+    color:grey;
+
 }
