@@ -6,10 +6,22 @@ margin:auto;
 
 h3, form{
 text-align:center;
-color:white;
+color:black;
 }
 
 
 body{
-background-color:#333333
+background-color:#white;
+}
+
+.innerContent{
+  max-width:80%;
+  background-color:#E1E5F4;
+  margin:auto;
+  height: 100vh;
+  border:black solid 2px;
+}
+
+nav{
+background-color:#3C3C3C;
 }

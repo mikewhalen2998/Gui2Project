@@ -16,7 +16,7 @@
 <body>
 
 <!-- Header with clickable link to homepage -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="homepage.html">Grocery Shopping Assistant</a>
   </nav>
 
@@ -38,7 +38,7 @@ echo"Item Type: ".$IType;
 <a href="ItemSearch.html">
       <input type="submit" value ="Search for Another Item"/>
 </a>
-</div>  <!-- Closing out of searchInformation div -->
+
 <br><br>
 <?php
 
@@ -99,7 +99,7 @@ for($i=0; $i<count($selectedItems);$i++){
 } // Close of for loop
 ?>
 </div> <!-- close of foodInformation div -->
-
+</div>  <!-- Closing out of searchInformation div -->
 <!-- Scripts and close out tags for body and html -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </body>
