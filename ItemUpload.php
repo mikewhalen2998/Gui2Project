@@ -24,6 +24,19 @@
 $IName = $_POST["ItemName"];
 $ANum = $_POST["AisleNum"];
 $IType = $_POST["itemType"];
+session_start();
+$Location = $_SESSION['location'];
+//getting tags
+$EnteredTags = $_POST['TagList'];
+$Tags="";
+if (!(empty($EnteredTags))){
+  $C = count($EnteredTags);
+  for($i=0;$i<$C;$i++){
+  $Tags =  $Tags.$EnteredTags[$i]." ";
+  }
+
+}//tags if over
+
 
 $uploaddir= 'img/';
 $uploadfile = $uploaddir.basename($_FILES['userfile']['name']);
@@ -34,19 +47,73 @@ echo"Aisle Number: ".$ANum;
 ?> <br><?php
 echo"Item Type: ".$IType;
 ?> <br><?php
+echo"Location: ".$Location;
+?> <br><?php
+echo"Tags: ".$Tags;
+?> <br><?php
+
 
 
 echo"Upload file: ".$uploadfile;
 ?> <br><?php
 
-
+$TooLarge ="0";
 echo '<pre>';
 if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-    echo "File is valid, and was successfully uploaded.\n";
+    echo "File is valid, and not too large.\n";
 } else {
-    echo "Possible file upload attack!\n";
+  $TooLarge ="1";
+    echo "File to large for database, Crop image and try to reupload.\n";
 }
-
+$errMsg="";
+$dbConnection = new mysqli('localhost', 'root', '', 'gui2');
+if ($dbConnection->connect_error) {
+  die("Connection failed: " . $dbConnection->connect_error);
+}
+//Using prepares statments to insert all the item information collected from the html page
+//into our database, printing out errors at each location should there be an error
+//New Locations call for new tables
+if($TooLarge == 0){
+if ($Location=="Lowell"){
+$stmt = $dbConnection->prepare("INSERT INTO ItemsLowell (itemName, aisleNumber, image, itemType, tags) VALUES (?, ?, ?, ?,?)");
+if(false ===$stmt){
+  die('prepare() failed: ' . htmlspecialchars($mysqli->error));
+}
+$check = $stmt->bind_param("sssss", $IName, $ANum, $uploadfile,$IType,$Tags);
+if(false ===$check){
+  die('bind_param() failed: ' . htmlspecialchars($stmt->error));
+}
+$check = $stmt->execute();
+if(false ===$check){
+  $errMsg="Failed to Upload Item to Lowell Database, Duplicate Names cannot exist at the same location";
+  //die('execute() failed: ' . htmlspecialchars($stmt->error));
+}
+}//Location If Closed
+//New Locations call for new tables
+if ($Location=="Tewksbury"){
+$stmt = $dbConnection->prepare("INSERT INTO ItemsTewksbury (itemName, aisleNumber, image, itemType, tags) VALUES (?, ?, ?, ?,?)");
+if(false ===$stmt){
+  die('prepare() failed: ' . htmlspecialchars($mysqli->error));
+}
+$check = $stmt->bind_param("sssss", $IName, $ANum, $uploadfile,$IType,$Tags);
+if(false ===$check){
+  die('bind_param() failed: ' . htmlspecialchars($stmt->error));
+}
+$check = $stmt->execute();
+if(false ===$check){
+  $errMsg="Failed to Upload Item to Tewksburry Database, Duplicate Names cannot exist at the same location";
+  //die('execute() failed: ' . htmlspecialchars($stmt->error));
+}
+}//Location If Closed
+}//too large IF Close
+if(!($errMsg=="")){
+  ?>
+  <div id ="errorMessage">
+    <p> <?php echo $errMsg;?>  </p>
+  </div>
+<style> p{color:red;} <style>
+<?php
+}
 /*
 echo 'Here is some more debugging info:';
 print_r($_FILES);
@@ -63,24 +130,7 @@ print "</pre>";
 <?php
 //After here upload to database
 //Opening Connection to database and testing connection
-$dbConnection = new mysqli('localhost', 'root', '', 'gui2');
-if ($dbConnection->connect_error) {
-  die("Connection failed: " . $dbConnection->connect_error);
-}
-//Using prepares statments to insert all the item information collected from the html page
-//into our database, printing out errors at each location should there be an error
-$stmt = $dbConnection->prepare("INSERT INTO items (itemName, aisleNumber, image, itemType) VALUES (?, ?, ?, ?)");
-if(false ===$stmt){
-  die('prepare() failed: ' . htmlspecialchars($mysqli->error));
-}
-$check = $stmt->bind_param("ssss", $IName, $ANum, $uploadfile,$IType);
-if(false ===$check){
-  die('bind_param() failed: ' . htmlspecialchars($stmt->error));
-}
-$check = $stmt->execute();
-if(false ===$check){
-  die('execute() failed: ' . htmlspecialchars($stmt->error));
-}
+
 ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

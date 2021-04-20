@@ -25,6 +25,8 @@
 <?php
 $IName=$_POST["ItemName"];
 $IType=$_POST["itemType"];
+session_start();
+$Location = $_SESSION['location'];
 
 
 echo"ItemName: ".$IName;
@@ -47,8 +49,8 @@ $dbConnection = new mysqli('localhost', 'root', '', 'gui2');
 if ($dbConnection->connect_error) {
   die("Connection failed: " . $dbConnection->connect_error);
 }
-
-$stmt = $dbConnection->prepare("Select * FROM items WHERE itemName like CONCAT( '%',?,'%') AND itemType = ? ");
+if ($Location=="Lowell"){
+$stmt = $dbConnection->prepare("Select * FROM itemsLowell WHERE itemName like CONCAT( '%',?,'%') AND itemType = ? ");
 if(false ===$stmt){
   die('prepare() failed: ' . htmlspecialchars($mysqli->error));
 }
@@ -63,6 +65,24 @@ if(false ===$check){
 $selectedItems = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
  $stmt->close();
  //var_dump($selectedItems);
+}
+if ($Location=="Tewksbury"){
+$stmt = $dbConnection->prepare("Select * FROM itemsTewksbury WHERE itemName like CONCAT( '%',?,'%') AND itemType = ? ");
+if(false ===$stmt){
+  die('prepare() failed: ' . htmlspecialchars($mysqli->error));
+}
+$check = $stmt->bind_param("ss", $IName, $IType);
+if(false ===$check){
+  die('bind_param() failed: ' . htmlspecialchars($stmt->error));
+}
+$check = $stmt->execute();
+if(false ===$check){
+  die('execute() failed: ' . htmlspecialchars($stmt->error));
+}
+$selectedItems = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+ $stmt->close();
+ //var_dump($selectedItems);
+}
 ?>
 
 <br>
@@ -92,11 +112,25 @@ for($i=0; $i<count($selectedItems);$i++){
   echo"   Item Type:  ".$selectedItems[$i]["itemType"];
 ?>
 </div> <!-- itemTypeStyling close div -->
+    <div class="TagsStyling">
+<?php
+echo"   Tags:  ".$selectedItems[$i]["tags"];
+?>
+</div>
  <hr> <!-- Line below each set of information per product -->
  <br><!-- These are just for spacing -->
  <br><!-- These are just for spacing -->
 <?php
 } // Close of for loop
+if(count($selectedItems)<1){
+  $errMsg = "There is no item in the database with name: '".$IName."' with type '".$IType."' at location: ".$Location;
+  ?>
+  <div id ="errorMessage">
+    <p> <?php echo $errMsg;?>  </p>
+  </div>
+<style> p{color:red;} <style>
+<?php
+}
 ?>
 </div> <!-- close of foodInformation div -->
 </div>  <!-- Closing out of searchInformation div -->
