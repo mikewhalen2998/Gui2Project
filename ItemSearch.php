@@ -17,7 +17,9 @@
 
 <!-- Header with clickable link to homepage -->
   <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="linkButtons"  href="ItemSearch.html"> Previous Page </a>
     <a class="navbar-brand" href="homepage.html">Grocery Shopping Assistant</a>
+    <a class="linkButtons" href="Homepage.html"> Homepage </a>
   </nav>
 
 <!-- This div is for printing out what the user entered at the top left. For ex: Pizza and then they select Frozen in the selector -->
