@@ -14,7 +14,9 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="linkButtons"  href="ItemUpload.html"> Previous Page </a>
     <a class="navbar-brand" href="homepage.html">Grocery Shopping Assistant</a>
+    <a class="linkButtons" href="Homepage.html"> Homepage </a>
   </nav>
 
 <div class="itemInfoPrintout">
@@ -101,7 +103,7 @@ if(false ===$check){
 }
 $check = $stmt->execute();
 if(false ===$check){
-  $errMsg="Failed to Upload Item to Tewksburry Database, Duplicate Names cannot exist at the same location";
+  $errMsg="Failed to Upload Item to Tewksbury Database, Duplicate Names cannot exist at the same location";
   //die('execute() failed: ' . htmlspecialchars($stmt->error));
 }
 }//Location If Closed
@@ -111,7 +113,7 @@ if(!($errMsg=="")){
   <div id ="errorMessage">
     <p> <?php echo $errMsg;?>  </p>
   </div>
-<style> p{color:red;} <style>
+<style> p{color:red;} </style>
 <?php
 }
 /*

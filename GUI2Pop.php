@@ -28,7 +28,7 @@ if($mydb = mysqli_select_db ($myconnection, 'gui2')){
 }
 
 //gets gui2 sql puts it into $query
-$fp = fopen("$DOCUMENT_ROOT/GUI2/code/gui2Pop.sql",'r');
+$fp = fopen("$DOCUMENT_ROOT/GUI2/gui2project/gui2Pop.sql",'r');
 $query = "";
 while(!feof($fp)) {
     $newLine = fgets($fp);

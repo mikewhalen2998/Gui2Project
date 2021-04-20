@@ -91,3 +91,20 @@ max-width:200px;
 max-height:200px;
 
 }
+
+
+.linkButtons {
+  font-size: 16px;
+  color: white;
+  padding: 14px 16px;
+  margin-left:5px;
+  margin-right:5px;
+  text-decoration: none;
+  background-color:#228999;
+}
+
+
+.linkButtons:hover{
+  background-color:purple;
+  color:white;
+}
