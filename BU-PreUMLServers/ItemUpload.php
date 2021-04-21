@@ -15,7 +15,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="linkButtons"  href="ItemUpload.html"> Previous Page </a>
-    <a class="navbar-brand" href="Homepage.html">Grocery Shopping Assistant</a>
+    <a class="navbar-brand" href="homepage.html">Grocery Shopping Assistant</a>
     <a class="linkButtons" href="Homepage.html"> Homepage </a>
   </nav>
 
@@ -68,8 +68,7 @@ if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
     echo "File to large for database, Crop image and try to reupload.\n";
 }
 $errMsg="";
-$dbConnection = new mysqli('weblab.cs.uml.edu', 'cgonthie', 'ohCh2tee', '');
-$dbConnection->query("use cgonthie");
+$dbConnection = new mysqli('localhost', 'root', '', 'gui2');
 if ($dbConnection->connect_error) {
   die("Connection failed: " . $dbConnection->connect_error);
 }

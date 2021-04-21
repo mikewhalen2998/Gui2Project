@@ -1,0 +1,110 @@
+/* This styling is for the actual information printed out in the body of the page like Item name, aisle number ,etc. */
+.foodInformation{
+ text-align:center;
+ font-family: Verdana, sans-serif;
+ margin:auto;
+ color:black;
+}
+
+
+/* This styling is for the button at the top with the entered information also */
+.searchInformation{
+  text-align:center;
+  font-family: Verdana, sans-serif;
+  color:black;
+  max-width:80%;
+  background-color:#E1E5F4;
+  margin:auto;
+  height: 100%;
+  border:black solid 2px;
+}
+
+nav{
+background-color:#3C3C3C;
+}
+
+/* Background styling */
+body{
+  background-color:white;
+}
+
+/* Line below each product information */
+hr{
+  border: 5px solid black;
+  border-radius: 2px;
+}
+
+/* Header styling */
+.navbar-brand {
+margin:auto;
+}
+
+
+.itemNameStyling{
+  display:inline-block;
+  margin:5px;
+  padding:5px;
+  color:black;
+}
+
+.aisleNumberStyling{
+  display:inline-block;
+  margin:5px;
+  padding:5px;
+  color:black;
+}
+
+.imageStyling{
+  display:inline-block;
+  margin:5px;
+  padding:5px;
+  color:black;
+}
+
+.itemTypeStyling{
+  display:inline-block;
+  margin:5px;
+  padding:5px;
+  color:black;
+}
+
+
+.pageInformation{
+  text-align:center;
+  font-family: Verdana, sans-serif;
+  color:black;
+  max-width:80%;
+  background-color:#E1E5F4;
+  margin:auto;
+  height: 100vh;
+  border:black solid 2px;
+}
+
+h3{
+  text-align:center;
+  background-color:#3e7823;
+  color:black;
+}
+
+img{
+max-width:200px;
+max-height:200px;
+
+}
+
+
+.linkButtons {
+  font-size: 16px;
+  color: white;
+  padding: 14px 16px;
+  margin-left:5px;
+  margin-right:5px;
+  text-decoration: none;
+  background-color:#228999;
+}
+
+
+.linkButtons:hover{
+  background-color:purple;
+  color:white;
+}

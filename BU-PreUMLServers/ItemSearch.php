@@ -18,7 +18,7 @@
 <!-- Header with clickable link to homepage -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="linkButtons"  href="ItemSearch.html"> Previous Page </a>
-    <a class="navbar-brand" href="Homepage.html">Grocery Shopping Assistant</a>
+    <a class="navbar-brand" href="homepage.html">Grocery Shopping Assistant</a>
     <a class="linkButtons" href="Homepage.html"> Homepage </a>
   </nav>
 
@@ -38,7 +38,7 @@ echo"Item Type: ".$IType;
 ?>
 
 
-<!-- This button will return them to the search page if theyd like to search for another item -->
+<!-- This button will return them to the search page if they'd like to search for another item -->
 <a href="ItemSearch.html">
       <input type="submit" value ="Search for Another Item"/>
 </a>
@@ -47,36 +47,29 @@ echo"Item Type: ".$IType;
 <?php
 
 //Opening Connection to database and testing connection
-$dbConnection = new mysqli('weblab.cs.uml.edu', 'cgonthie', 'ohCh2tee', '');
-$dbConnection->query("use cgonthie");
+$dbConnection = new mysqli('localhost', 'root', '', 'gui2');
 if ($dbConnection->connect_error) {
   die("Connection failed: " . $dbConnection->connect_error);
 }
-
-
 if ($Location=="Lowell"){
-
-  
-$stmt = $dbConnection->prepare("Select * FROM ItemsLowell WHERE itemName like CONCAT( '%',?,'%') AND itemType = ? ");
+$stmt = $dbConnection->prepare("Select * FROM itemsLowell WHERE itemName like CONCAT( '%',?,'%') AND itemType = ? ");
 if(false ===$stmt){
   die('prepare() failed: ' . htmlspecialchars($mysqli->error));
 }
-
 $check = $stmt->bind_param("ss", $IName, $IType);
 if(false ===$check){
   die('bind_param() failed: ' . htmlspecialchars($stmt->error));
 }
-
 $check = $stmt->execute();
 if(false ===$check){
   die('execute() failed: ' . htmlspecialchars($stmt->error));
 }
 $selectedItems = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
  $stmt->close();
+ //var_dump($selectedItems);
 }
-
 if ($Location=="Tewksbury"){
-$stmt = $dbConnection->prepare("Select * FROM ItemsTewksbury WHERE itemName like CONCAT( '%',?,'%') AND itemType = ? ");
+$stmt = $dbConnection->prepare("Select * FROM itemsTewksbury WHERE itemName like CONCAT( '%',?,'%') AND itemType = ? ");
 if(false ===$stmt){
   die('prepare() failed: ' . htmlspecialchars($mysqli->error));
 }
@@ -90,6 +83,7 @@ if(false ===$check){
 }
 $selectedItems = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
  $stmt->close();
+ //var_dump($selectedItems);
 }
 ?>
 
@@ -139,7 +133,6 @@ if(count($selectedItems)<1){
 <style> p{color:red;} <style>
 <?php
 }
-
 ?>
 </div> <!-- close of foodInformation div -->
 </div>  <!-- Closing out of searchInformation div -->
