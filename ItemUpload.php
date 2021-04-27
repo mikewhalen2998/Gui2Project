@@ -42,6 +42,7 @@ if (!(empty($EnteredTags))){
 
 $uploaddir= 'img/';
 $uploadfile = $uploaddir.basename($_FILES['userfile']['name']);
+$TempFName = basename($_FILES['userfile']['name']); 
 
 echo"Item Name: ".$IName;
 ?> <br><?php
@@ -55,19 +56,35 @@ echo"Tags: ".$Tags;
 ?> <br><?php
 
 
-
 echo"Upload file: ".$uploadfile;
 ?> <br><?php
-
+$errMsg="";
 $TooLarge ="0";
+$nameCheck = "0";
+
+
+//echo"File Name: ".$TempFName;
+if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $TempFName))
+{
+    // one or more of the 'special characters' found in $string
+    $nameCheck = "2";
+    $TooLarge = "1";
+  $errMsg="File Name cannot contain special characters, try to rename the file before uploading";
+
+}
+?> <br><?php
+if($nameCheck=="0"){
+
 echo '<pre>';
 if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
     echo "File is valid, and not too large.\n";
 } else {
   $TooLarge ="1";
-    echo "File to large for database, Crop image and try to reupload.\n";
+  
+   $errMsg="File to large for database, Crop image and try to reupload.\n";
 }
-$errMsg="";
+}
+
 $dbConnection = new mysqli('weblab.cs.uml.edu', 'cgonthie', 'ohCh2tee', '');
 $dbConnection->query("use cgonthie");
 if ($dbConnection->connect_error) {
