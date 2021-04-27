@@ -6,7 +6,6 @@ DROP TABLE IF EXISTS `Lowell-items`;
 DROP TABLE IF EXISTS `Tewksbury-items`;
 DROP TABLE IF EXISTS `ItemsLowell`;
 DROP TABLE IF EXISTS `ItemsTewksbury`;
-DROP TABLE IF EXISTS `testCreate`;
 
 
 
